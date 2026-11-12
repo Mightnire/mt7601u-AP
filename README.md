@@ -1,5 +1,7 @@
 ## Orange Pi - MT7601U Access Point and Station Mode support. 
 
+根据本仓库思路，对 OpenWrt 中如下文件进行修改，将编出来的 mt7601u.ko 覆盖到 /lib/modules/6.12.112/mt7601u.ko（必须用同一份 backports 源码 + 同 SDK 编，符号 CRC 才和系统里的 cfg80211.ko/mac80211.ko 对得上）。即可在 OpenWrt 中使用 MT7601U 网卡开启无线网。
+
 ```
 --- a/drivers/net/wireless/mediatek/mt7601u/init.c
 +++ b/drivers/net/wireless/mediatek/mt7601u/init.c
